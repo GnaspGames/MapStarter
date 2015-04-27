@@ -1,0 +1,11 @@
+# How to NOT use comparators:
+
+# Setup scoreboard objective:
+/scoreboard objective add testforOutput dummy
+
+fill strip:
+	stats block <coordinated of testfor block> set SuccessCount @a testforOutput
+	testfor <whatever>
+	execute @a[c=1,score_testforOutput_min=1] ~ ~ ~ <success code here>
+	execute @a[c=1,score_testforOutput=0] ~ ~ ~ <failure code here>
+	scoreboard players set @a testforOutput -1
